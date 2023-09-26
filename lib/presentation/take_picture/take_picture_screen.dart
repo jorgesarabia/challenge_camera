@@ -1,3 +1,4 @@
+import 'package:challenge_camera/presentation/common/app_text_input.dart';
 import 'package:flutter/material.dart';
 
 class TakePictureScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class TakePictureScreen extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
@@ -24,45 +25,24 @@ class TakePictureScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Title',
-                      filled: true,
-                      isDense: true,
-                      border: const OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
-                  ),
+                  AppTextInput(hintText: 'Title'),
                   SizedBox(height: 10),
-                  TextFormField(
+                  AppTextInput(
                     maxLines: 5,
-                    decoration: InputDecoration(
-                      hintText: 'Write a description of the image',
-                      filled: true,
-                      // fillColor: Colors.grey.withOpacity(0.2),
-                      border: const OutlineInputBorder(
-                        borderSide: BorderSide.none, // Sin bordes visibles
-                      ),
-                    ),
+                    hintText: 'Write a description of the image',
                   ),
                   SizedBox(height: 10),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Place',
-                      filled: true,
-                      isDense: true,
-                      border: const OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
-                  ),
+                  AppTextInput(hintText: 'Place'),
                 ],
               ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Upload'),
             ),
           ],
         ),
