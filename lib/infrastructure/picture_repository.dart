@@ -12,26 +12,27 @@ class PictureRepository implements PictureFacade {
 
   final FirebaseFirestore firebaseFirestore;
 
+  static const _pictures = 'pictures';
+
   @override
   Future<List<SavedPicture>> getPictures() async {
-    await Future.delayed(const Duration(seconds: 2));
+    try {
+      // final currentUser = _firebaseAuth.currentUser;
+      final collection = firebaseFirestore.collection(_pictures);
+      final pictures = await collection.get();
+      final savedPictures = <SavedPicture>[];
 
-    return [
-      SavedPicture(
-        imgUrl: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
-        title: 'Fake Image',
-        description: 'Una breve descripcion',
-        takedOn: DateTime.now().toIso8601String(),
-        place: 'Clorinda',
-      ),
-      SavedPicture(
-        imgUrl: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
-        title: 'Fake Image',
-        description: 'Una breve descripcion',
-        takedOn: DateTime.now().toIso8601String(),
-        place: 'Clorinda',
-      ),
-    ];
+      for (var docSnapshot in pictures.docs) {
+        final savedPicture = SavedPicture.fromJson(docSnapshot.data());
+        savedPictures.add(savedPicture);
+      }
+
+      return savedPictures;
+    } catch (e) {
+      log(e.toString());
+    }
+
+    return [];
   }
 
   @override
@@ -50,7 +51,7 @@ class PictureRepository implements PictureFacade {
   Future<bool> _saveDetails(SavedPicture newPicture) async {
     try {
       // final currentUser = _firebaseAuth.currentUser;
-      final documentReference = firebaseFirestore.collection('pictures').doc();
+      final documentReference = firebaseFirestore.collection(_pictures).doc();
       await documentReference.set(newPicture.toJson());
 
       return documentReference.id.isNotEmpty;
@@ -59,5 +60,10 @@ class PictureRepository implements PictureFacade {
     }
 
     return true;
+  }
+
+  @override
+  Future<void> takePicture() async {
+    throw UnimplementedError();
   }
 }
