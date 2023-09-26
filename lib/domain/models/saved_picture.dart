@@ -7,6 +7,7 @@ part 'saved_picture.g.dart';
 class SavedPicture with _$SavedPicture {
   factory SavedPicture({
     String? imgUrl,
+    String? title,
     String? description,
     String? takedOn,
     String? place,

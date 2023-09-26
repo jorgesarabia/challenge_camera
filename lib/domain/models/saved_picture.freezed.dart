@@ -21,6 +21,7 @@ SavedPicture _$SavedPictureFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SavedPicture {
   String? get imgUrl => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get takedOn => throw _privateConstructorUsedError;
   String? get place => throw _privateConstructorUsedError;
@@ -38,7 +39,11 @@ abstract class $SavedPictureCopyWith<$Res> {
       _$SavedPictureCopyWithImpl<$Res, SavedPicture>;
   @useResult
   $Res call(
-      {String? imgUrl, String? description, String? takedOn, String? place});
+      {String? imgUrl,
+      String? title,
+      String? description,
+      String? takedOn,
+      String? place});
 }
 
 /// @nodoc
@@ -55,6 +60,7 @@ class _$SavedPictureCopyWithImpl<$Res, $Val extends SavedPicture>
   @override
   $Res call({
     Object? imgUrl = freezed,
+    Object? title = freezed,
     Object? description = freezed,
     Object? takedOn = freezed,
     Object? place = freezed,
@@ -63,6 +69,10 @@ class _$SavedPictureCopyWithImpl<$Res, $Val extends SavedPicture>
       imgUrl: freezed == imgUrl
           ? _value.imgUrl
           : imgUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
           ? _value.description
@@ -89,7 +99,11 @@ abstract class _$$_SavedPictureCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? imgUrl, String? description, String? takedOn, String? place});
+      {String? imgUrl,
+      String? title,
+      String? description,
+      String? takedOn,
+      String? place});
 }
 
 /// @nodoc
@@ -104,6 +118,7 @@ class __$$_SavedPictureCopyWithImpl<$Res>
   @override
   $Res call({
     Object? imgUrl = freezed,
+    Object? title = freezed,
     Object? description = freezed,
     Object? takedOn = freezed,
     Object? place = freezed,
@@ -112,6 +127,10 @@ class __$$_SavedPictureCopyWithImpl<$Res>
       imgUrl: freezed == imgUrl
           ? _value.imgUrl
           : imgUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
           ? _value.description
@@ -132,13 +151,16 @@ class __$$_SavedPictureCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SavedPicture implements _SavedPicture {
-  _$_SavedPicture({this.imgUrl, this.description, this.takedOn, this.place});
+  _$_SavedPicture(
+      {this.imgUrl, this.title, this.description, this.takedOn, this.place});
 
   factory _$_SavedPicture.fromJson(Map<String, dynamic> json) =>
       _$$_SavedPictureFromJson(json);
 
   @override
   final String? imgUrl;
+  @override
+  final String? title;
   @override
   final String? description;
   @override
@@ -148,7 +170,7 @@ class _$_SavedPicture implements _SavedPicture {
 
   @override
   String toString() {
-    return 'SavedPicture(imgUrl: $imgUrl, description: $description, takedOn: $takedOn, place: $place)';
+    return 'SavedPicture(imgUrl: $imgUrl, title: $title, description: $description, takedOn: $takedOn, place: $place)';
   }
 
   @override
@@ -157,6 +179,7 @@ class _$_SavedPicture implements _SavedPicture {
         (other.runtimeType == runtimeType &&
             other is _$_SavedPicture &&
             (identical(other.imgUrl, imgUrl) || other.imgUrl == imgUrl) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.takedOn, takedOn) || other.takedOn == takedOn) &&
@@ -166,7 +189,7 @@ class _$_SavedPicture implements _SavedPicture {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, imgUrl, description, takedOn, place);
+      Object.hash(runtimeType, imgUrl, title, description, takedOn, place);
 
   @JsonKey(ignore: true)
   @override
@@ -185,6 +208,7 @@ class _$_SavedPicture implements _SavedPicture {
 abstract class _SavedPicture implements SavedPicture {
   factory _SavedPicture(
       {final String? imgUrl,
+      final String? title,
       final String? description,
       final String? takedOn,
       final String? place}) = _$_SavedPicture;
@@ -194,6 +218,8 @@ abstract class _SavedPicture implements SavedPicture {
 
   @override
   String? get imgUrl;
+  @override
+  String? get title;
   @override
   String? get description;
   @override
