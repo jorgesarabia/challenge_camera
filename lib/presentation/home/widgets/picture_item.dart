@@ -1,7 +1,9 @@
 part of '../home_screen.dart';
 
 class _PictureItem extends StatelessWidget {
-  const _PictureItem();
+  const _PictureItem({required this.savedPicture});
+
+  final SavedPicture savedPicture;
 
   @override
   Widget build(BuildContext context) {
@@ -12,38 +14,39 @@ class _PictureItem extends StatelessWidget {
         children: [
           FlutterLogo(size: screenWidth / 4),
           const SizedBox(width: 10),
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Esto será el título',
-                style: TextStyle(
+                savedPicture.title ?? 'No title',
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),
               ),
               Text(
-                'Esto será el detalle',
+                savedPicture.description ?? 'No description',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Text(
-                    'Fecha: Fecha',
-                    style: TextStyle(
+                    savedPicture.takedOn ?? '',
+                    style: const TextStyle(
                       fontWeight: FontWeight.w300,
                       fontSize: 12,
                     ),
                   ),
-                  SizedBox(width: 10),
-                  Text(
-                    'Esto será el lugar',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w300,
-                      fontSize: 12,
+                  const SizedBox(width: 10),
+                  if (savedPicture.place != null)
+                    Text(
+                      'at ${savedPicture.place!}',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontSize: 12,
+                      ),
                     ),
-                  ),
                 ],
               ),
             ],

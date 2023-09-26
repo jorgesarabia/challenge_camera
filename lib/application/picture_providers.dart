@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final pictureRepositoryProvider = Provider<PictureRepository>((ref) => PictureRepository());
 
-final pictureRepostitory = FutureProvider<List<SavedPicture>>((ref) {
+final pictureRepository = FutureProvider<List<SavedPicture>>((ref) {
   final repository = ref.watch(pictureRepositoryProvider);
   return repository.getPictures();
 });
