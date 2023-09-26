@@ -15,11 +15,19 @@ _$_SavedPicture _$$_SavedPictureFromJson(Map<String, dynamic> json) =>
       place: json['place'] as String?,
     );
 
-Map<String, dynamic> _$$_SavedPictureToJson(_$_SavedPicture instance) =>
-    <String, dynamic>{
-      'imgUrl': instance.imgUrl,
-      'title': instance.title,
-      'description': instance.description,
-      'takedOn': instance.takedOn,
-      'place': instance.place,
-    };
+Map<String, dynamic> _$$_SavedPictureToJson(_$_SavedPicture instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('imgUrl', instance.imgUrl);
+  writeNotNull('title', instance.title);
+  writeNotNull('description', instance.description);
+  writeNotNull('takedOn', instance.takedOn);
+  writeNotNull('place', instance.place);
+  return val;
+}
