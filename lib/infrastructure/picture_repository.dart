@@ -1,14 +1,16 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:challenge_camera/domain/facades/picture_facade.dart';
 import 'package:challenge_camera/domain/models/saved_picture.dart';
 
 class PictureRepository implements PictureFacade {
-  // const PictureRepository({
-  //   required this.firebaseFirestore,
-  // });
+  const PictureRepository({
+    required this.firebaseFirestore,
+  });
 
-  // final FirebaseFirestore firebaseFirestore;
+  final FirebaseFirestore firebaseFirestore;
 
   @override
   Future<List<SavedPicture>> getPictures() async {
@@ -33,20 +35,28 @@ class PictureRepository implements PictureFacade {
   }
 
   @override
-  Future<bool> savePicture() {
-    throw UnimplementedError();
+  Future<bool> savePicture() async {
+    return _saveDetails(
+      SavedPicture(
+        imgUrl: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+        title: 'Fake Image',
+        description: 'Una breve descripcion',
+        takedOn: DateTime.now().toIso8601String(),
+        place: 'Clorinda',
+      ),
+    );
   }
 
-  Future<bool> _saveDetails() async {
-    // try {
-    //   // final currentUser = _firebaseAuth.currentUser;
-    //   final documentReference = firebaseFirestore.collection('pictures').doc();
-    //   await documentReference.set();
+  Future<bool> _saveDetails(SavedPicture newPicture) async {
+    try {
+      // final currentUser = _firebaseAuth.currentUser;
+      final documentReference = firebaseFirestore.collection('pictures').doc();
+      await documentReference.set(newPicture.toJson());
 
-    //   return documentReference.id;
-    // } catch (e) {
-    //   log(e.toString());
-    // }
+      return documentReference.id.isNotEmpty;
+    } catch (e) {
+      log(e.toString());
+    }
 
     return true;
   }

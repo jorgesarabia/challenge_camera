@@ -1,12 +1,16 @@
+import 'package:challenge_camera/application/picture_providers.dart';
 import 'package:challenge_camera/presentation/common/app_text_input.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class TakePictureScreen extends StatelessWidget {
+class TakePictureScreen extends ConsumerWidget {
   const TakePictureScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final screenHeight = MediaQuery.of(context).size.height;
+
+    final pictureProvider = ref.watch(pictureRepositoryProvider);
 
     return Scaffold(
       backgroundColor: Colors.grey[200],
@@ -41,7 +45,7 @@ class TakePictureScreen extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => pictureProvider.savePicture(),
               child: const Text('Upload'),
             ),
           ],
