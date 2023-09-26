@@ -5,10 +5,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Column(
         children: [
-          ListTile(),
+          Text('Hello'),
+          // ListTile(
+          //   leading: Placeholder(),
+          //   title: Placeholder(),
+          // ),
         ],
       ),
     );
