@@ -6,62 +6,9 @@
   "configurations": [
     {
       "name": "Debug",
-      "program": "${workspaceFolder}/lib/main_development.dart",
-      "request": "launch",
-      "type": "dart",
-      "args": [
-        "-d",
-        "chrome",
-        "--web-renderer",
-        "canvaskit",
-      ],
-    },
-    {
-      "name": "Test (local emulator)",
-      "program": "${workspaceFolder}/lib/main_test.dart",
-      "request": "launch",
-      "type": "dart",
-      "args": [
-        "-d",
-        "chrome",
-        "--web-renderer",
-        "canvaskit",
-      ],
-    },
-    {
-      "name": "Debug (for mobile)",
-      "program": "${workspaceFolder}/lib/main_development.dart",
-      "request": "launch",
-      "type": "dart",
-      "args": [
-        "-d",
-        "chrome",
-        "--debug",
-        "--web-hostname",
-        "192.168.100.20",
-        "--web-port",
-        "49827",
-      ],
-    },
-    {
-      "name": "Prod",
       "program": "${workspaceFolder}/lib/main.dart",
       "request": "launch",
       "type": "dart",
-      "args": [
-        "-d",
-        "chrome"
-      ],
-    },
-    {
-      "name": "Staging",
-      "program": "${workspaceFolder}/lib/main_staging.dart",
-      "request": "launch",
-      "type": "dart",
-      "args": [
-        "-d",
-        "chrome"
-      ],
     },
   ]
 }
