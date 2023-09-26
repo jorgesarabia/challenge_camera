@@ -1,3 +1,4 @@
+import 'package:challenge_camera/presentation/take_picture/take_picture_screen.dart';
 import 'package:flutter/material.dart';
 
 part 'widgets/picture_item.dart';
@@ -12,7 +13,14 @@ class HomeScreen extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (context) => const TakePictureScreen(),
+                ),
+              );
+            },
             child: const Icon(Icons.add),
           ),
         ),
