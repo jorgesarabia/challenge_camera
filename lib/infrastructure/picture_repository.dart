@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:camerawesome/camerawesome_plugin.dart';
+import 'package:camerawesome/pigeon.dart';
 
 import 'package:challenge_camera/domain/facades/picture_facade.dart';
 import 'package:challenge_camera/domain/models/saved_picture.dart';
@@ -64,6 +66,15 @@ class PictureRepository implements PictureFacade {
 
   @override
   Future<void> takePicture() async {
-    throw UnimplementedError();
+    // CameraAwesomeBuilder.awesome(
+    //   saveConfig: SaveConfig.photo(
+    //     pathBuilder: () async {
+    //       return '';
+    //     },
+    //   ),
+    //   onMediaTap: (mediaCapture) {
+    //     OpenFile.open(mediaCapture.filePath);
+    //   },
+    // );
   }
 }
