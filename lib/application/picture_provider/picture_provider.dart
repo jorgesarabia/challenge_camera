@@ -19,18 +19,21 @@ class PictureNotifier extends StateNotifier<PictureProviderState> {
     state = PictureProviderState(savedPictures: pictures);
   }
 
-  Future<void> uploadPhoto(PictureForm photo) async {
+  Future<bool> uploadPhoto(PictureForm photo) async {
     final photoRepository = _ref.read(photoRepositoryProvider);
     if (photo.imgPath?.isNotEmpty ?? false) {
+      state = const PictureProviderState(isSubmitting: true);
       final downloadUrl = await photoRepository.savePicture(photo.imgPath!);
-      await photoRepository.saveDetails(SavedPicture(
+      final wasSaved = await photoRepository.saveDetails(SavedPicture(
         imgUrl: downloadUrl,
         title: photo.title,
         description: photo.description,
         place: photo.place,
       ));
       fetchPhotos();
+      return wasSaved;
     }
+    return false;
   }
 }
 

@@ -10,7 +10,11 @@ class _UploadButton extends ConsumerWidget {
 
     if (formState.imgPath != null) {
       return ElevatedButton(
-        onPressed: () => pictureNotifier.uploadPhoto(formState),
+        onPressed: () => pictureNotifier.uploadPhoto(formState).then((wasSaved) {
+          if (wasSaved && Navigator.canPop(context)) {
+            Navigator.of(context).pop();
+          }
+        }),
         child: const Text('Upload'),
       );
     }

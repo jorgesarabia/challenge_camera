@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:challenge_camera/application/picture_form/picture_form_state.dart';
 import 'package:challenge_camera/application/picture_provider/picture_provider.dart';
@@ -12,20 +13,40 @@ part 'widgets/image_preview.dart';
 part 'widgets/detail_form.dart';
 part 'widgets/upload_button.dart';
 
-class TakePictureScreen extends StatelessWidget {
+class TakePictureScreen extends ConsumerWidget {
   const TakePictureScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isSubmitting = ref.watch(pictureStateProvider).isSubmitting;
+
+    if (isSubmitting) {
+      FocusScope.of(context).unfocus();
+    }
+
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(backgroundColor: Colors.purple[50]),
-      body: const SingleChildScrollView(
-        child: Column(
+      body: SingleChildScrollView(
+        child: Stack(
           children: [
-            _ImagePreview(),
-            _DetailForm(),
-            _UploadButton(),
+            const Column(
+              children: [
+                _ImagePreview(),
+                _DetailForm(),
+                _UploadButton(),
+              ],
+            ),
+            if (isSubmitting)
+              Container(
+                color: Colors.transparent,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                  child: const Center(child: CircularProgressIndicator()),
+                ),
+              ),
           ],
         ),
       ),
