@@ -41,9 +41,12 @@ final pictureStateProvider = StateNotifierProvider<PictureNotifier, PictureProvi
   return PictureNotifier(ref);
 });
 
+// coverage:ignore-start
+// Ignore the real implementation
 final photoRepositoryProvider = Provider<PictureFacade>((ref) {
   return PictureRepository(
     firebaseFirestore: FirebaseFirestore.instance,
     firebaseStorage: FirebaseStorage.instance,
   );
 });
+// coverage:ignore-end
