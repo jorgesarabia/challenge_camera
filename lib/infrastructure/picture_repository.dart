@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:challenge_camera/domain/facades/picture_facade.dart';
 import 'package:challenge_camera/domain/models/saved_picture.dart';
+import 'package:intl/intl.dart';
 
 class PictureRepository implements PictureFacade {
   const PictureRepository({
@@ -27,7 +28,12 @@ class PictureRepository implements PictureFacade {
       final savedPictures = <SavedPicture>[];
 
       for (var docSnapshot in pictures.docs) {
-        final savedPicture = SavedPicture.fromJson(docSnapshot.data());
+        final data = docSnapshot.data();
+        final dateTime = (data['takedOn'] as Timestamp).toDate();
+        final day = DateFormat('MM-d-yy').format(dateTime);
+
+        data['takedOn'] = day;
+        final savedPicture = SavedPicture.fromJson(data);
         savedPictures.add(savedPicture);
       }
 
@@ -61,7 +67,9 @@ class PictureRepository implements PictureFacade {
     try {
       // final currentUser = _firebaseAuth.currentUser;
       final documentReference = firebaseFirestore.collection(_pictures).doc();
-      await documentReference.set(newPicture.toJson());
+      final data = newPicture.toJson();
+      data.putIfAbsent('takedOn', () => FieldValue.serverTimestamp());
+      await documentReference.set(data);
 
       return true;
     } catch (e) {

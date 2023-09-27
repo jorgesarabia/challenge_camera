@@ -12,7 +12,22 @@ class _PictureItem extends StatelessWidget {
     return Card(
       child: Row(
         children: [
-          FlutterLogo(size: screenWidth / 4),
+          SizedBox(
+            width: screenWidth / 4,
+            child: CachedNetworkImage(
+              imageUrl: savedPicture.imgUrl ?? 'No Url',
+              progressIndicatorBuilder: (context, url, downloadProgress) {
+                return Center(
+                  child: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: CircularProgressIndicator(value: downloadProgress.progress),
+                  ),
+                );
+              },
+              errorWidget: (context, url, error) => const FlutterLogo(),
+            ),
+          ),
           const SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

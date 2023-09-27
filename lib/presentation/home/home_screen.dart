@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:challenge_camera/application/picture_provider/picture_provider.dart';
 import 'package:challenge_camera/domain/models/saved_picture.dart';
 import 'package:challenge_camera/presentation/take_picture/take_picture_screen.dart';

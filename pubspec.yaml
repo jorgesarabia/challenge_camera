@@ -44,7 +44,8 @@ dependencies:
   json_annotation: ^4.4.0
   validators: ^3.0.0
   path_provider: ^2.1.1
-  better_open_file: ^3.6.4
+  cached_network_image: ^3.3.0
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
