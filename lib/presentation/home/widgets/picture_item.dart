@@ -35,7 +35,7 @@ class _PictureItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  (savedPicture.title ?? 'no title').capitalized(),
+                  (savedPicture.title ?? 'no title').toTitleCase(),
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
