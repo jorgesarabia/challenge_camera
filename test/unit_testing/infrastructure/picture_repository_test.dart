@@ -14,12 +14,18 @@ void main() {
   late MockQuerySnapshot<Map<String, dynamic>> querySnapshot;
   late MockQueryDocumentSnapshot<Map<String, dynamic>> documentQuerySnapshot;
   late MockDocumentReference<Map<String, dynamic>> documentReference;
+  late MockReference mockReference;
+  late MockUploadTask mockUploadTask;
+  late MockTaskSnapshot mockTaskSnapshot;
 
   setUp(() {
     collectionReference = MockCollectionReference();
     querySnapshot = MockQuerySnapshot();
     documentQuerySnapshot = MockQueryDocumentSnapshot();
     documentReference = MockDocumentReference();
+    mockReference = MockReference();
+    mockUploadTask = MockUploadTask();
+    mockTaskSnapshot = MockTaskSnapshot();
 
     mockFirebaseFirestore = MockFirebaseFirestore();
     mockFirebaseStorage = MockFirebaseStorage();
@@ -78,6 +84,40 @@ void main() {
       verify(collectionReference.get()).called(1);
       verify(querySnapshot.docs).called(1);
       verify(documentQuerySnapshot.data()).called(1);
+    });
+  });
+
+  group('savePicture', () {
+    test('must return null when there is an exception', () async {
+      when(mockFirebaseStorage.ref()).thenReturn(mockReference);
+      when(mockReference.child('pictures/file')).thenReturn(mockReference);
+      when(mockReference.putFile(any)).thenThrow(Exception(''));
+      when(mockReference.getDownloadURL()).thenAnswer((_) async => 'mock_url');
+
+      final result = await pictureRepository.savePicture('some/file');
+
+      expect(result, isNull);
+      verify(mockFirebaseStorage.ref()).called(1);
+      verify(mockReference.child('pictures/file')).called(1);
+      verify(mockReference.putFile(any)).called(1);
+      verifyNever(mockReference.getDownloadURL());
+    });
+
+    test('must return ', () async {
+      when(mockFirebaseStorage.ref()).thenReturn(mockReference);
+      when(mockReference.child('pictures/file')).thenReturn(mockReference);
+      when(mockReference.putFile(any)).thenAnswer((_) => mockUploadTask);
+      when(mockUploadTask.snapshot).thenReturn(mockTaskSnapshot);
+      when(mockTaskSnapshot.ref).thenReturn(mockReference);
+      when(mockReference.getDownloadURL()).thenAnswer((_) async => 'mock_url');
+
+      final result = await pictureRepository.savePicture('some/file');
+
+      expect(result, 'mock_url');
+      verify(mockFirebaseStorage.ref()).called(1);
+      verify(mockReference.child('pictures/file')).called(1);
+      verify(mockReference.putFile(any)).called(1);
+      verify(mockReference.getDownloadURL()).called(1);
     });
   });
 

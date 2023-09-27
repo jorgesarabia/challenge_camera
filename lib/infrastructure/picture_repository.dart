@@ -51,9 +51,10 @@ class PictureRepository implements PictureFacade {
       final fileName = imagePath.split('/').last;
       final storageRef = firebaseStorage.ref().child('pictures/$fileName');
 
-      await storageRef.putFile(file);
+      final uploadTask = storageRef.putFile(file);
+      final taskSnapshot = uploadTask.snapshot;
 
-      return await storageRef.getDownloadURL();
+      return await taskSnapshot.ref.getDownloadURL();
     } catch (e) {
       log(e.toString());
     }
