@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:challenge_camera/application/picture_form/picture_form_state.dart';
+import 'package:challenge_camera/application/picture_provider/picture_provider.dart';
 import 'package:challenge_camera/presentation/camera/camera_screen.dart';
 import 'package:challenge_camera/presentation/common/app_text_input.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,8 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:challenge_camera/domain/facades/picture_facade.dart';
 import 'package:challenge_camera/domain/models/saved_picture.dart';
@@ -8,9 +10,11 @@ import 'package:challenge_camera/domain/models/saved_picture.dart';
 class PictureRepository implements PictureFacade {
   const PictureRepository({
     required this.firebaseFirestore,
+    required this.firebaseStorage,
   });
 
   final FirebaseFirestore firebaseFirestore;
+  final FirebaseStorage firebaseStorage;
 
   static const _pictures = 'pictures';
 
@@ -36,43 +40,34 @@ class PictureRepository implements PictureFacade {
   }
 
   @override
-  Future<bool> savePicture() async {
-    return _saveDetails(
-      SavedPicture(
-        imgUrl: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
-        title: 'Fake Image',
-        description: 'Una breve descripcion',
-        takedOn: DateTime.now().toIso8601String(),
-        place: 'Clorinda',
-      ),
-    );
+  Future<String?> savePicture(String imagePath) async {
+    try {
+      final file = File(imagePath);
+      final fileName = 'pictures/$imagePath';
+      final Reference storageRef = firebaseStorage.ref().child(fileName);
+
+      await storageRef.putFile(file);
+
+      return await storageRef.getDownloadURL();
+    } catch (e) {
+      log(e.toString());
+    }
+
+    return null;
   }
 
-  Future<bool> _saveDetails(SavedPicture newPicture) async {
+  @override
+  Future<bool> saveDetails(SavedPicture newPicture) async {
     try {
       // final currentUser = _firebaseAuth.currentUser;
       final documentReference = firebaseFirestore.collection(_pictures).doc();
       await documentReference.set(newPicture.toJson());
 
-      return documentReference.id.isNotEmpty;
+      return true;
     } catch (e) {
       log(e.toString());
     }
 
-    return true;
-  }
-
-  @override
-  Future<void> takePicture() async {
-    // CameraAwesomeBuilder.awesome(
-    //   saveConfig: SaveConfig.photo(
-    //     pathBuilder: () async {
-    //       return '';
-    //     },
-    //   ),
-    //   onMediaTap: (mediaCapture) {
-    //     OpenFile.open(mediaCapture.filePath);
-    //   },
-    // );
+    return false;
   }
 }
