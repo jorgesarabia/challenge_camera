@@ -6,12 +6,14 @@ class _UploadButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final formState = ref.watch(formStateProvider);
+    final stateProvider = ref.watch(formStateProvider.notifier);
     final pictureNotifier = ref.read(pictureStateProvider.notifier);
 
     if (formState.imgPath != null) {
       return ElevatedButton(
         onPressed: () => pictureNotifier.uploadPhoto(formState).then((wasSaved) {
           if (wasSaved && Navigator.canPop(context)) {
+            stateProvider.clear();
             Navigator.of(context).pop();
           }
         }),

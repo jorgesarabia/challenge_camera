@@ -11,6 +11,8 @@ class PictureFormState extends StateNotifier<PictureForm> {
   void changeDescription(String description) => state = state.copyWith(description: description);
 
   void changePlace(String place) => state = state.copyWith(place: place);
+
+  void clear() => state = const PictureForm();
 }
 
 final formStateProvider = StateNotifierProvider<PictureFormState, PictureForm>((ref) => PictureFormState());
