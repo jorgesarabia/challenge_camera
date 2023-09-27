@@ -43,8 +43,8 @@ class PictureRepository implements PictureFacade {
   Future<String?> savePicture(String imagePath) async {
     try {
       final file = File(imagePath);
-      final fileName = 'pictures/$imagePath';
-      final Reference storageRef = firebaseStorage.ref().child(fileName);
+      final fileName = imagePath.split('/').last;
+      final storageRef = firebaseStorage.ref().child('pictures/$fileName');
 
       await storageRef.putFile(file);
 
