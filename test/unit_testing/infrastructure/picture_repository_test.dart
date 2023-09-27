@@ -66,8 +66,7 @@ void main() {
       final date = DateTime(2023, 9, 28);
       final mockData = {
         'imgUrl': '',
-        'title': '',
-        'description': '',
+        'description': 'mockDescription',
         'takedOn': Timestamp.fromDate(date),
         'place': '',
       };
@@ -78,8 +77,9 @@ void main() {
 
       final result = await pictureRepository.getPictures();
 
-      expect(result, [SavedPicture.fromJson(mockData)]);
       expect(result.first.takedOn, '09-28-23');
+      expect(result.first.title, isNull);
+      expect(result.first.description, 'mockDescription');
       verify(mockFirebaseFirestore.collection('pictures')).called(1);
       verify(collectionReference.get()).called(1);
       verify(querySnapshot.docs).called(1);
@@ -122,7 +122,7 @@ void main() {
   });
 
   group('saveDetails()', () {
-    const saved = SavedPicture();
+    const saved = SavedPicture(title: 'SomeTitle');
 
     test('must return false if there were an exception', () async {
       when(mockFirebaseFirestore.collection('pictures')).thenThrow(Exception('mock error'));
