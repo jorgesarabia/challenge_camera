@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 
@@ -10,6 +11,7 @@ import 'firebase_mock_test.mocks.dart';
   MockSpec<CollectionReference>(),
   MockSpec<QueryDocumentSnapshot>(),
   MockSpec<DocumentReference>(),
+  MockSpec<FirebaseStorage>(),
 ])
 void main() {
   test('the mock generation FirebaseFirestore exist', () {
@@ -30,5 +32,9 @@ void main() {
 
   test('the mock generation DocumentReference exists', () {
     expect(MockDocumentReference(), const TypeMatcher<DocumentReference>());
+  });
+
+  test('the mock generation FirebaseStorage exists', () {
+    expect(MockFirebaseStorage(), const TypeMatcher<FirebaseStorage>());
   });
 }

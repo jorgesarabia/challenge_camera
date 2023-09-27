@@ -22,7 +22,6 @@ class PictureRepository implements PictureFacade {
   @override
   Future<List<SavedPicture>> getPictures() async {
     try {
-      // final currentUser = _firebaseAuth.currentUser;
       final collection = firebaseFirestore.collection(_pictures);
       final pictures = await collection.get();
       final savedPictures = <SavedPicture>[];
@@ -65,7 +64,6 @@ class PictureRepository implements PictureFacade {
   @override
   Future<bool> saveDetails(SavedPicture newPicture) async {
     try {
-      // final currentUser = _firebaseAuth.currentUser;
       final documentReference = firebaseFirestore.collection(_pictures).doc();
       final data = newPicture.toJson();
       data.putIfAbsent('takedOn', () => FieldValue.serverTimestamp());
