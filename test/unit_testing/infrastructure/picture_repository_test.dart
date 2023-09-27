@@ -107,7 +107,7 @@ void main() {
       when(mockFirebaseStorage.ref()).thenReturn(mockReference);
       when(mockReference.child('pictures/file')).thenReturn(mockReference);
       when(mockReference.putFile(any)).thenAnswer((_) => mockUploadTask);
-      when(mockUploadTask.snapshot).thenReturn(mockTaskSnapshot);
+      when(mockUploadTask.whenComplete(any)).thenAnswer((_) async => mockTaskSnapshot);
       when(mockTaskSnapshot.ref).thenReturn(mockReference);
       when(mockReference.getDownloadURL()).thenAnswer((_) async => 'mock_url');
 

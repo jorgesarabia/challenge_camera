@@ -49,49 +49,5 @@ class CameraScreen extends StatelessWidget {
         ),
       ),
     );
-    // return CameraAwesomeBuilder.awesome(
-    //   saveConfig: SaveConfig.photo(
-    //     pathBuilder: () async {
-    //       final directory = await getTemporaryDirectory();
-    //       return '${directory.path}/${DateTime.now().millisecondsSinceEpoch}.jpg';
-    //     },
-    //   ),
-    //   onMediaTap: (image) {
-    //     // print(image.)
-    //     // OpenFile.open(image.filePath);
-    //   },
-    //   theme: AwesomeTheme(
-    //     // Background color of the bottom actions
-    //     bottomActionsBackgroundColor: Colors.deepPurple.withOpacity(0.5),
-    //     // Buttons theme
-    //     buttonTheme: AwesomeButtonTheme(
-    //       // Background color of the button
-    //       backgroundColor: Colors.deepPurple.withOpacity(0.5),
-    //       // Size of the icon
-    //       iconSize: 32,
-    //       // Padding around the icon
-    //       padding: const EdgeInsets.all(18),
-    //       // Color of the icon
-    //       foregroundColor: Colors.lightBlue,
-    //       // Tap visual feedback (ripple, bounce...)
-    //       buttonBuilder: (child, onTap) {
-    //         return ClipOval(
-    //           child: Material(
-    //             color: Colors.transparent,
-    //             shape: const CircleBorder(),
-    //             child: InkWell(
-    //               splashColor: Colors.deepPurple,
-    //               highlightColor: Colors.deepPurpleAccent.withOpacity(0.5),
-    //               onTap: () {
-    //                 print('Algo');
-    //               },
-    //               child: child,
-    //             ),
-    //           ),
-    //         );
-    //       },
-    //     ),
-    //   ),
-    // );
   }
 }
