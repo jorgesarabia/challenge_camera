@@ -1,17 +1,33 @@
-import 'package:challenge_camera/application/picture_providers.dart';
+import 'package:challenge_camera/application/picture_provider/picture_provider.dart';
 import 'package:challenge_camera/domain/models/saved_picture.dart';
 import 'package:challenge_camera/presentation/take_picture/take_picture_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 part 'widgets/picture_item.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final pictures = ref.watch(pictureRepository).value;
+  ConsumerState<ConsumerStatefulWidget> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  @override
+  void initState() {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      ref.read(pictureStateProvider.notifier).fetchPhotos();
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final pictureNotifier = ref.watch(pictureStateProvider);
+    final pictures = pictureNotifier.savedPictures;
+    final isSubmitting = pictureNotifier.isSubmitting;
 
     return Scaffold(
       appBar: AppBar(actions: [
@@ -30,18 +46,24 @@ class HomeScreen extends ConsumerWidget {
           ),
         ),
       ]),
-      body: ListView.builder(
-        itemCount: pictures?.length ?? 0,
-        itemBuilder: (context, index) {
-          if (pictures == null) {
-            return const Text('No hay imagenes');
-          }
+      body: Builder(builder: (context) {
+        if (isSubmitting) {
+          return const Center(child: CircularProgressIndicator());
+        }
 
-          return _PictureItem(
-            savedPicture: pictures[index],
-          );
-        },
-      ),
+        if (pictures.isEmpty) {
+          return const Center(child: Text('No hay imagenes'));
+        }
+
+        return ListView.builder(
+          itemCount: pictures.length,
+          itemBuilder: (context, index) {
+            return _PictureItem(
+              savedPicture: pictures[index],
+            );
+          },
+        );
+      }),
     );
   }
 }
