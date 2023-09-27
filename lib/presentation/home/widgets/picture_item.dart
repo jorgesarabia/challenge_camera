@@ -29,42 +29,45 @@ class _PictureItem extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                savedPicture.title ?? 'No title',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-              Text(
-                savedPicture.description ?? 'No description',
-              ),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  Text(
-                    savedPicture.takedOn ?? '',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w300,
-                      fontSize: 12,
-                    ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  (savedPicture.title ?? 'no title').capitalized(),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
                   ),
-                  const SizedBox(width: 10),
-                  if (savedPicture.place != null)
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  (savedPicture.description ?? 'no description').capitalized(),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
                     Text(
-                      'at ${savedPicture.place!}',
+                      savedPicture.takedOn ?? '',
                       style: const TextStyle(
                         fontWeight: FontWeight.w300,
                         fontSize: 12,
                       ),
                     ),
-                ],
-              ),
-            ],
+                    if (savedPicture.place != null)
+                      Text(
+                        ' at ${savedPicture.place!.capitalized()}',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 12,
+                        ),
+                      ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
