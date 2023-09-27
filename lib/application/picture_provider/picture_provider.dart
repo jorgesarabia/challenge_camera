@@ -42,7 +42,7 @@ final pictureStateProvider = StateNotifierProvider<PictureNotifier, PictureProvi
 });
 
 // coverage:ignore-start
-// Ignore the real implementation
+// Ignore the real implementation on coverage
 final photoRepositoryProvider = Provider<PictureFacade>((ref) {
   return PictureRepository(
     firebaseFirestore: FirebaseFirestore.instance,
