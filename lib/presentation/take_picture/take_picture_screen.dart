@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:challenge_camera/application/picture_form/picture_form_state.dart';
 import 'package:challenge_camera/application/picture_providers.dart';
 import 'package:challenge_camera/presentation/camera/camera_screen.dart';

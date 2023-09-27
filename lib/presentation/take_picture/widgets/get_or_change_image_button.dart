@@ -13,18 +13,24 @@ class _GetOrChangeImageButton extends ConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<String>(
-                  builder: (context) => const CameraScreen(),
-                ),
-              ).then((value) => stateProvider.changePath(value));
-            },
-            child: Text(hasImage ? 'Change Image' : 'Take Image'),
-          ),
           if (hasImage) ...[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<String>(
+                    builder: (context) => const CameraScreen(),
+                  ),
+                ).then((value) => stateProvider.changePath(value));
+              },
+              style: ElevatedButton.styleFrom(
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(5),
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.cyan,
+              ),
+              child: const Icon(Icons.update, color: Colors.white),
+            ),
             const SizedBox(width: 20),
             ElevatedButton(
               onPressed: () => stateProvider.changePath(null),
@@ -36,7 +42,18 @@ class _GetOrChangeImageButton extends ConsumerWidget {
               ),
               child: const Icon(Icons.close, color: Colors.white),
             ),
-          ]
+          ] else
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<String>(
+                    builder: (context) => const CameraScreen(),
+                  ),
+                ).then((value) => stateProvider.changePath(value));
+              },
+              child: Text(hasImage ? 'Change Image' : 'Take Image'),
+            ),
         ],
       ),
     );

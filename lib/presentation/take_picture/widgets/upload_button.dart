@@ -5,7 +5,7 @@ class _UploadButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final formState = ref.read(formStateProvider);
+    final formState = ref.watch(formStateProvider);
 
     if (formState.imgPath != null) {
       return ElevatedButton(

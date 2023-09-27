@@ -1,4 +1,4 @@
-import 'package:challenge_camera/application/picture_form/picture_form.dart';
+import 'package:challenge_camera/application/models/picture_form.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PictureFormState extends StateNotifier<PictureForm> {
