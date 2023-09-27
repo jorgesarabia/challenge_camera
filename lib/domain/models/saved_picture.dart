@@ -5,7 +5,7 @@ part 'saved_picture.g.dart';
 
 @freezed
 class SavedPicture with _$SavedPicture {
-  factory SavedPicture({
+  const factory SavedPicture({
     String? imgUrl,
     String? title,
     String? description,
