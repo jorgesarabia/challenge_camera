@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1083856393119",
+    "project_id": "camera-challenge-e7f0b",
+    "storage_bucket": "camera-challenge-e7f0b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083856393119:android:0f2ef133a59750a9b623aa",
+        "android_client_info": {
+          "package_name": "com.example.challenge_camera"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLPvW86xQZH87Nv3IEbQ2-VD385Y6pBOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
