@@ -1,4 +1,4 @@
-# challenge_camera :blue_heart: 
+![flutter_04](https://github.com/jorgesarabia/challenge_camera/assets/6399992/2388d2b1-0182-4b8a-aae0-efdd95ea9b39)# challenge_camera :blue_heart: 
 
 This is a challenge app built with [Flutter](https://flutter.dev/). It's a simple app that connects to Firebase. It only has two screens, the Home screen, which is the main screen, and the screen to upload a photo to the server.
 
@@ -50,19 +50,38 @@ This was a 'weekend project' so there are some features that I was unable to add
 ------ | ------ | ------ 
 :x: | Authentication | My goal was to show how to use flutter_riverpod + camerawesome interacting with firebase. In a few days the Firebase project will be removed
 :x: | CRUD | With Firebase, implementing data deletion and updating is very similar to implementing read and create. The goal was to show how to interact with those packages and that is already fulfilled with the read and write implementations.
-:x: | Widget testing | I only carried out the unit tests, I lacked time to carry out more tests on the widgets 
+:x: | Widget testing | I only did the unit tests, I didn't have time to test the widgets
 
 # Testing
 
 ### Unit Testing
 
-I need to refactor a function to achieve 100% code coverage
+100% of unit tests have been covered
 
-![Screen Shot 2022-03-21 at 10 42 33](https://user-images.githubusercontent.com/6399992/159273610-769a476b-8d48-48e6-a3f1-ff001faf25c4.png)
+<img width="1766" alt="Screenshot 2023-09-27 at 22 39 24" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/9e8634a9-96ae-4a98-8f30-d2f70bda24aa">
 
-### Widget Testing
 
-After adding widget testing on some screens, this is what full coverage looks like
+### Screenshots
 
-![Screen Shot 2022-03-21 at 10 46 12](https://user-images.githubusercontent.com/6399992/159275387-5833f0cd-67da-4e62-80a6-5e5422da1094.png)
+
+![flutter_02](https://github.com/jorgesarabia/challenge_camera/assets/6399992/503eba4a-d318-44f9-87ae-c25efc1b246e)
+![flutter_03](https://github.com/jorgesarabia/challenge_camera/assets/6399992/22ab6e30-a8eb-49e3-bd66-000a173d6c88)
+![flutter_04](https://github.com/jorgesarabia/challenge_camera/assets/6399992/b3ac664a-1b69-49e4-8026-7ba6b6e0fa96)
+![flutter_06](https://github.com/jorgesarabia/challenge_camera/assets/6399992/be8ffb46-d32b-44cb-bd53-4f2b8cb1cfc4)
+![flutter_07](https://github.com/jorgesarabia/challenge_camera/assets/6399992/9482c6d8-c1d1-4794-9e74-ed522c29202f)
+![flutter_08](https://github.com/jorgesarabia/challenge_camera/assets/6399992/41f96554-782c-4871-af8e-93f72548ad37)
+![flutter_09](https://github.com/jorgesarabia/challenge_camera/assets/6399992/d877fa5b-96c7-4d43-81d9-818de67cbe3d)
+![flutter_10](https://github.com/jorgesarabia/challenge_camera/assets/6399992/157526b5-3a96-4aa1-9882-22e9b0627d1f)
+![flutter_11](https://github.com/jorgesarabia/challenge_camera/assets/6399992/808fd9e8-722e-42a1-b073-dc3d217b70c6)
+
+
+
+
+
+
+
+
+
+
+
 
