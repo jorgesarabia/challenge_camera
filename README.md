@@ -58,7 +58,7 @@ This was a "weekend project" so there are some features I haven't been able to a
 
 100% of unit tests have been covered
 
-<img width="1766" alt="Screenshot 2023-09-27 at 22 39 24" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/assets/coverage.png">
+<img width="1766" alt="Code coverage" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/assets/coverage.png">
 
 
 ### Screenshots
