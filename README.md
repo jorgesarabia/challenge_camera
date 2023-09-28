@@ -71,7 +71,7 @@ This was a 'weekend project' so there are some features that I was unable to add
 <img width="200" alt= "flutter_07" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/9482c6d8-c1d1-4794-9e74-ed522c29202f">
 <img width="200" alt= "flutter_08" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/41f96554-782c-4871-af8e-93f72548ad37">
 <img width="200" alt= "flutter_09" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/d877fa5b-96c7-4d43-81d9-818de67cbe3d">
-<img width="200" alt= "flutter_10" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/157526b5-3a96-4aa1-9882-22e9b0627d1f">
+<!-- <img width="200" alt= "flutter_10" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/157526b5-3a96-4aa1-9882-22e9b0627d1f"> -->
 <img width="200" alt= "flutter_11" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/808fd9e8-722e-42a1-b073-dc3d217b70c6">
 
 
