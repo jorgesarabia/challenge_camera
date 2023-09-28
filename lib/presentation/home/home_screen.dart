@@ -54,7 +54,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         }
 
         if (pictures.isEmpty) {
-          return const Center(child: Text('No hay imagenes'));
+          return const Center(child: Text('No images found'));
         }
 
         return ListView.builder(
