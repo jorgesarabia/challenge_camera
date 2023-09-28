@@ -44,7 +44,7 @@ Package | What it solves
 
 
 ### Technical debts
-This was a 'weekend project' so there are some features that I was unable to add and it has some technical debts. I name some of them below
+This was a "weekend project" so there are some features I haven't been able to add and I consider them technical debt. Below I name some of them.
 
  ...  | Name | Detail
 ------ | ------ | ------ 
