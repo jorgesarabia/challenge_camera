@@ -58,20 +58,15 @@ This was a "weekend project" so there are some features I haven't been able to a
 
 100% of unit tests have been covered
 
-<img width="1766" alt="Screenshot 2023-09-27 at 22 39 24" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/9e8634a9-96ae-4a98-8f30-d2f70bda24aa">
+<img width="1766" alt="Code coverage" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/assets/coverage.png">
 
 
 ### Screenshots
 
 
-<img width="200" alt= "flutter_02" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/503eba4a-d318-44f9-87ae-c25efc1b246e">
-<img width="200" alt= "flutter_03" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/22ab6e30-a8eb-49e3-bd66-000a173d6c88">
-<img width="200" alt= "flutter_04" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/b3ac664a-1b69-49e4-8026-7ba6b6e0fa96">
-<img width="200" alt= "flutter_06" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/be8ffb46-d32b-44cb-bd53-4f2b8cb1cfc4">
-<img width="200" alt= "flutter_07" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/9482c6d8-c1d1-4794-9e74-ed522c29202f">
-<img width="200" alt= "flutter_08" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/41f96554-782c-4871-af8e-93f72548ad37">
-<img width="200" alt= "flutter_09" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/d877fa5b-96c7-4d43-81d9-818de67cbe3d">
-<img width="200" alt= "flutter_11" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/808fd9e8-722e-42a1-b073-dc3d217b70c6">
+<img width="200" alt= "flutter_01" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/assets/flutter_01.png">
+<img width="200" alt= "flutter_02" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/assets/flutter_02.png">
+<img width="200" alt= "flutter_03" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/assets/flutter_03.png">
 
 
 
