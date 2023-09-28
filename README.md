@@ -13,39 +13,43 @@ flutter run
 ```
 
 # How to use it
-To use the application you must be logged in. You can get 3 types of response depending on the combination of password and email you enter
+Once you enter the application the home screen will be displayed, if there are no images a text will be displayed that says "No images found". 
 
-- By email: `admin@admin.com` and password: `Admin123`, you will login successfully
-- By email: `repetido@admin.com` and any password, you will get the response: `email already in use`
-- By any email and any password, you will get the response: `email/password combination does not match`
-
-After successful login you will be able to see the quote of the day in the home screen.
-
-### Caching functionality
-Each call to [ZenQuotes](https://zenquotes.io/api/) to get the today quote receives the same quote until the next day, so there is no need to call the server more than once a day. To avoid this, a cache has been implemented that only calls the server if necessary.
+In the main bar you will find a button with a plus icon to add an image, by pressing this button you will navigate to a form where the only required field is the image, you can add or not a title, a description and a place. After taking an image, you will see the "Upload" button. You have to tap on the upload button to upload the image and details. Once saved, you will be returned to the home screen where the list of images should be updated.
 
 # Technical aspects
-In this project, the hexagonal architecture was implemented and the BLoC pattern was used for state management. 
+This is the stack of this project:
+
+Aspect | Solution
+------------ | -------------
+Architecture | The hexagonal architecture
+State management | [Riverpod](https://riverpod.dev/docs/getting_started)
+Backend | [Firebase](https://firebase.google.com/)
+
+
+
 
 ### Packages
+Some of the most relevant packages used in this project are:
+
 Package | What it solves
 ------------ | -------------
-[flutter_bloc](https://pub.dev/packages/flutter_bloc) | A collection of Widgets that make it easy to integrate blocs and cubits into Flutter
+[flutter_riverpod](https://pub.dev/packages/flutter_riverpod) | A state-management library that can be considered an improve of another package that is largely used and well accepted by the community
 [freezed](https://pub.dev/packages/freezed) | A code generator for unions/pattern-matching/copy. It helps to reduce boilerplate
-[get_it](https://pub.dev/packages/get_it) | A simple service locator. It helps to reduce boilerplate and it is used also to manage the DI
-[injectable](https://pub.dev/packages/injectable) | A code generator that can be used in conjunction with get_it
-[dartz](https://pub.dev/packages/dartz) | Functional programming in Dart. The `Either` and `Option` classes are very useful when you use them with server calls
-[shared_preferences](https://pub.dev/packages/shared_preferences) | Wraps platform-specific persistent storage for simple data (NSUserDefaults on iOS and macOS, SharedPreferences on Android, etc.). |
-[google_fonts](https://pub.dev/packages/google_fonts) | The google_fonts package for Flutter allows you to easily use any of the thousands of fonts available from [fonts.google.com](https://fonts.google.com/) in your Flutter app. 
-[local_auth](https://pub.dev/packages/local_auth) | This Flutter plugin provides means to perform local, on-device authentication of the user.
+[camerawesome](https://pub.dev/packages/camerawesome) | This packages provides you a fully customizable camera experience that you can integrate within your app
+[cloud_firestore](https://pub.dev/packages/cloud_firestore) |  A Flutter package that facilitates communication with Firebase Firestore Database
+[firebase_storage](https://pub.dev/packages/firebase_storage) | A Flutter package that enables interaction with Firebase Cloud Storage for managing files and binary data in Firebase projects 
+[cached_network_image](https://pub.dev/packages/cached_network_image) | A flutter library to show images from the internet and keep them in the cache directory.
 
 
 
 ### Technical debts
-This was a weekend project so there are some features that I was unable to add and it has some technical debts. I name some of them below
+This was a 'weekend project' so there are some features that I was unable to add and it has some technical debts. I name some of them below
 
  ...  | Name | Detail
 ------ | ------ | ------ 
+:x: | Authentication | My goal was to show how to use flutter_riverpod + camerawesome interacting with firebase. In a few days the Firebase project will be removed
+:x: | CRUD | With Firebase, implementing data deletion and updating is very similar to implementing read and create. The goal was to show how to interact with those packages and that is already fulfilled with the read and write implementations.
 :x: | Widget testing | I only carried out the unit tests, I lacked time to carry out more tests on the widgets 
 
 # Testing
