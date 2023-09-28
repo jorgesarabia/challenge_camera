@@ -64,7 +64,7 @@ This was a "weekend project" so there are some features I haven't been able to a
 ### Screenshots
 
 
-<img width="200" alt= "flutter_01" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/screenshots/flutter_01.png"><img width="200" alt= "flutter_02" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/screenshots/flutter_02.png"><img width="200" alt= "flutter_03" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/screenshots/flutter_03.png">
+<img width="200" alt= "flutter_01" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/screenshots/flutter_01.png"> <img width="200" alt= "flutter_02" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/screenshots/flutter_02.png"> <img width="200" alt= "flutter_03" src="https://raw.githubusercontent.com/jorgesarabia/challenge_camera/master/screenshots/flutter_03.png">
 
 
 
