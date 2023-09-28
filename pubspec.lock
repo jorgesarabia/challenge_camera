@@ -465,7 +465,7 @@ packages:
     source: hosted
     version: "4.1.2"
   injectable:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: injectable
       sha256: "5217c45fec809286a7b1b4fbcbd70aab1662bf18d9eb207490df421323f7883f"
@@ -893,14 +893,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.0"
-  validators:
-    dependency: "direct main"
-    description:
-      name: validators
-      sha256: "884515951f831a9c669a41ed6c4d3c61c2a0e8ec6bca761a4480b28e99cecf5d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.0"
   vector_math:
     dependency: transitive
     description:

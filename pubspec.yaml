@@ -40,9 +40,7 @@ dependencies:
   firebase_core: ^2.15.0
   firebase_storage: ^11.2.5
   freezed_annotation: ^2.4.1
-  injectable: ^2.1.2
   json_annotation: ^4.4.0
-  validators: ^3.0.0
   path_provider: ^2.1.1
   cached_network_image: ^3.3.0
   intl: ^0.18.1
