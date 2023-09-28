@@ -15,7 +15,7 @@ flutter run
 # How to use it
 Once you enter the application the home screen will be displayed, if there are no images a text will be displayed that says "No images found". 
 
-In the main bar you will find a button with a plus icon to add an image, by pressing this button you will navigate to a form where the only required field is the image, you can add or not a title, a description and a place. After taking an image, you will see the "Upload" button. You have to tap on the upload button to upload the image and details. Once saved, you will be returned to the home screen where the list of images should be updated.
+In the app bar you will find a button with a plus icon to add an image, by pressing this button you will navigate to a form where the only required field is the image, you can add or not a title, a description and a place. After taking an image, you will see the "Upload" button. You have to tap on the upload button to upload the image and details. Once saved, you will be returned to the home screen where the list of images should be updated.
 
 # Technical aspects
 This is the stack of this project:
@@ -71,7 +71,6 @@ This was a 'weekend project' so there are some features that I was unable to add
 <img width="200" alt= "flutter_07" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/9482c6d8-c1d1-4794-9e74-ed522c29202f">
 <img width="200" alt= "flutter_08" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/41f96554-782c-4871-af8e-93f72548ad37">
 <img width="200" alt= "flutter_09" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/d877fa5b-96c7-4d43-81d9-818de67cbe3d">
-<!-- <img width="200" alt= "flutter_10" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/157526b5-3a96-4aa1-9882-22e9b0627d1f"> -->
 <img width="200" alt= "flutter_11" src="https://github.com/jorgesarabia/challenge_camera/assets/6399992/808fd9e8-722e-42a1-b073-dc3d217b70c6">
 
 
